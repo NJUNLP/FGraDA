@@ -1,0 +1,70 @@
+data_configs:
+  lang_pair: "en-zh"
+  train_data:
+    - "/your/path/to/cwmt17_zh-en/train.tok.en"
+    - "/your/path/to/cwmt17_zh-en/train.tok.zh"
+  valid_data:
+    - "/your/path/cwmt17_zh-en/newsdev2017.tok.en" # file is invalid now
+    - "/your/path/cwmt17_zh-en/newsdev2017.tok.zh" # file is invalid now
+  bleu_valid_reference: "/your/path/to/cwmt17_zh-en/newsdev2017.zh" # file is invalid now
+  vocabularies:
+    - type: "bpe"
+      apply_mod: False
+      dict_path: "/your/path/to/cwmt17_zh-en/en.vocab.json"
+      max_n_words: -1
+      codes: "/your/path/to/cwmt17_zh-en/en.codes"
+    - type: "bpe"
+      apply_mod: False
+      dict_path: "/your/path/to/cwmt17_zh-en/zh.vocab.json"
+      max_n_words: -1
+      codes: "/your/path/to/cwmt17_zh-en/zh.codes"
+  max_len:
+    - -1
+    - -1
+  num_refs: 1
+  eval_at_char_level: false
+
+model_configs:
+  model: Transformer
+  n_layers: 6
+  n_head: 8
+  d_word_vec: 512
+  d_model: 512
+  d_inner_hid: 2048
+  dropout: 0.1
+  proj_share_weight: true
+  label_smoothing: 0.1
+
+optimizer_configs:
+  optimizer: "adam"
+  learning_rate: 0.2
+  grad_clip: -1.0
+  optimizer_params: ~
+  schedule_method: noam
+  scheduler_configs:
+    d_model: 512
+    warmup_steps: 8000
+
+training_configs:
+  seed: 1234
+  max_epochs: 50
+  shuffle: true
+  use_bucket: true
+  batch_size: 1500
+  batching_key: "tokens"
+  update_cycle: 10
+  valid_batch_size: 20
+  disp_freq: 500
+  save_freq: 500
+  num_kept_checkpoints: 2
+  loss_valid_freq: 1000
+  bleu_valid_freq: 1000
+  bleu_valid_batch_size: 20
+  bleu_valid_warmup: 1
+  bleu_valid_configs:
+    max_steps: 150
+    beam_size: 5
+    alpha: 0.6
+    sacrebleu_args: -tok zh
+    postprocess: True
+  early_stop_patience: 50
