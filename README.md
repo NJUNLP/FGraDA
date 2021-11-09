@@ -1,14 +1,14 @@
 ## FGraDA
 -----
-Resources and code for our paper "FGraDA: A Dataset and Benchmark for Fine-Grained Domain Adaptation in Machine Translation". This project implements several baselines used in our paper. The implementation is build upon [NJUNMT](https://github.com/whr94621/NJUNMT-pytorch).
+Resources and code for our paper "[FGraDA: A Dataset and Benchmark for Fine-Grained Domain Adaptation in Machine Translation](https://arxiv.org/abs/2012.15717)". This project implements several baselines used in our paper. The implementation is build upon [NJUNMT](https://github.com/whr94621/NJUNMT-pytorch).
 Please cite our paper if you find this repository helpful in your research:
 
 ```latex
-@article{zhu2020fdmt,
+@article{zhu2021fgrada,
   title={FDMT: A Benchmark Dataset for Fine-grained Domain Adaptation in Machine Translation},
-  author={Zhu, Wenhao and Huang, Shujian and Pu, Tong and Zhang, Xu and Yu, Jian and Chen, Wei and Wang, Yanfeng and Chen, Jiajun},
+  author={Zhu, Wenhao and Huang, Shujian and Pu, Tong and Huang, Pingxuan and Zhang, Xu and Yu, Jian and Chen, Wei and Wang, Yanfeng and Chen, Jiajun},
   journal={arXiv preprint arXiv:2012.15717},
-  year={2020}
+  year={2021}
 }
 ```
 

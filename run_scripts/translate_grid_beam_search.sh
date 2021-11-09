@@ -1,7 +1,11 @@
-# domain: auto, education, network, phone
-domain=auto
-weight=your_weight
+#!/usr/bin/env bash
 
+export CUDA_VISIBLE_DEVICES=0
+
+echo "Using GPU $CUDA_VISIBLE_DEVICES..."
+
+domain=target_domain
+weight=your_weight
 data_dir=/your/path/to/data
 save_dir=/your/path/to/save/results
 model_path=/your/path/to/model

@@ -1,6 +1,10 @@
-# domain: auto education network phone
-domain=auto
+#!/usr/bin/env bash
 
+export CUDA_VISIBLE_DEVICES=0
+
+echo "Using GPU $CUDA_VISIBLE_DEVICES..."
+
+domain=target_domain
 data_dir=/your/path/to/data
 save_dir=/your/path/to/save/results
 model_path=/your/path/to/model
